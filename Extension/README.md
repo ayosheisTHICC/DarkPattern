@@ -11,4 +11,4 @@ This tool, developed by the informatics part of the [dapde-project](https://dapd
 - Function to individually highlight each detected dark pattern
 - Supporting multiple languages (currently English and German available)
 
-- ## We are running our own script on the pre built dark web Extension, We haev improved the capablities of the previous extension.
+- ## We are running our own script on the pre built dark web Extension, We have improved the capablities of the previous extension.
