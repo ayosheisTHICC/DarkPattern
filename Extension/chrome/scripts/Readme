@@ -1,0 +1,9 @@
+Resize Event Listener: Added a window resize event listener to trigger pattern highlighting after the window is resized. The debounce function is used to avoid frequent calls during resizing.
+
+Configuration Object: Introduced a config object to store additional configuration options. You can customize this object based on your specific needs.
+
+Debouncing: Modified the patternHighlighting function to include optional debouncing. This helps prevent unnecessary rapid calls, especially during dynamic changes on the page.
+
+Toggle Extension Activation: Added a function toggleExtensionActivation to toggle the activation state of the extension. This function can be called from the background script.
+
+Message Listener for Toggle Activation: Added a listener to handle messages from the background script for toggling the activation state.
