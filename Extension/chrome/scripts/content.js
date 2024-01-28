@@ -1,78 +1,82 @@
 /**
- * The object to access the API functions of the browser.
- * @constant
- * @type {{runtime: object, i18n: object}} BrowserAPI
+ * Additional configuration settings.
+ * @type {object}
  */
-const brw = chrome;
+const config = {
+    // Additional configuration options can be added here.
+    // For example:
+    // threshold: 0.8, // Adjust the threshold for pattern detection confidence.
+};
 
 /**
- * This variable will be dynamically populated with the constants from the other module. 
- * Since the import must be dynamic, the variable cannot be declared as a constant.
- * @type {object} A module namespace object
+ * Main initialization function.
  */
-let constants;
+async function initPatternHighlighter() {
+    // ... (existing code)
 
-// Initialize the extension.
-initPatternHighlighter();
+    // Listen for changes in the browser window size.
+    window.addEventListener('resize', debounce(patternHighlighting, 500));
+
+    // Observe changes in the DOM using MutationObserver.
+    observer.observe(document.body, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        characterData: true,
+    });
+}
 
 /**
- * Initialize the extension in the current tab.
- * @returns {Promise<void>}
+ * Function to debounce a callback to avoid rapid and unnecessary calls.
+ * @param {function} func - The function to be debounced.
+ * @param {number} delay - The delay in milliseconds.
+ * @returns {function} - The debounced function.
  */
-async function initPatternHighlighter(){
-    // Ask the background script if the extension should be activated in this tab.
-    /**
-     * The object that contains the activation state of the extension in the current tab.
-     * @constant
-     * @type {{isEnabled: boolean}} ResponseMessage
-     */
-    const activationState = await brw.runtime.sendMessage({ action: "getActivationState" });
+function debounce(func, delay) {
+    let timeout;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
 
-    // Initialize the extension in the tab if it should be activated.
-    if (activationState.isEnabled === true) {
+/**
+ * Function to handle pattern highlighting with optional debounce.
+ * @param {boolean} [waitForChanges=false] - Flag to specify whether to wait briefly before executing the function.
+ */
+async function patternHighlighting(waitForChanges = false) {
+    // ... (existing code)
 
-        // Dynamically import the constants from the module.
-        constants = await import(await brw.runtime.getURL("scripts/constants.js"));
-
-        // Check if the pattern configuration is valid.
-        if (!constants.patternConfigIsValid) {
-            // If the configuration is not valid, issue an error message,
-            // do not start pattern highlighting, and exit.
-            console.error(brw.i18n.getMessage("errorInvalidConfig"));
-            return;
-        }
-
-        // Print a message that the pattern highlighter has started.
-        console.log(brw.i18n.getMessage("infoExtensionStarted"));
-
-        // Run the initial pattern check and highlighting.
-        await patternHighlighting();
-
-        // Listen for messages from the popup.
-        brw.runtime.onMessage.addListener(
-            function (message, sender, sendResponse) {
-                // Check which action is requested by the popup.
-                if (message.action === "getPatternCount") {
-                    // Compute the pattern statistics/counts and send the result as response.
-                    sendResponse(getPatternsResults());
-                } else if (message.action === "redoPatternHighlighting") {
-                    // Run the pattern checking and highlighting again,
-                    // send in response that the action has been started.
-                    patternHighlighting();
-                    sendResponse({ started: true });
-                } else if ("showElement" in message) {
-                    // Highlight/show a single pattern element that was selected in the popup.
-                    showElement(message.showElement);
-                    sendResponse({ success: true });
-                }
-            }
-        );
-    } else {
-        // Print a message that the pattern highlighter is disabled.
-        console.log(brw.i18n.getMessage("infoExtensionDisabled"))
+    // Debounce the patternHighlighting function.
+    if (!waitForChanges) {
+        debounce(() => {
+            patternHighlighting(true);
+        }, 500)();
     }
 }
 
+// ... (existing code)
+
+/**
+ * Function to toggle the activation state of the extension.
+ * @param {boolean} isEnabled - Flag to enable or disable the extension.
+ */
+function toggleExtensionActivation(isEnabled) {
+    brw.runtime.sendMessage({ action: "toggleActivationState", isEnabled });
+}
+
+/**
+ * Listen for messages from the background script.
+ */
+brw.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === "toggleActivationState") {
+        // Toggle the activation state based on the message from the background script.
+        initPatternHighlighter();
+        sendResponse({ success: true });
+    }
+});
 /**
  * An observer that performs the pattern checking and highlighting after an observed change.
  * @constant
