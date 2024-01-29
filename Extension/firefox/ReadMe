@@ -1,1 +1,0 @@
-I added a new function addPattern to dynamically add patterns to the configuration. I also provided an example of adding a custom pattern called "CustomPattern" with a custom class name and detection function. Adjust the example according to your specific requirements.
