@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Dark Pattern Detector",
+    "version": "1.0",
+    "browser_action": {
+      "default_title": "Highlight Dark Pattens",
+      "default_popup": "popup.html",
+      "default_icon": "logodpbh.jpg"
+    },
+    "icons": {
+      "128": "logodpbh.jpg",
+      "48": "logodpbh.jpg",
+      "16": "logodpbh.jpg"
+    },
+    "permissions": [
+      "storage",
+      "activeTab",
+      "http://*/*",
+      "https://*/*",
+      "file:///*"
+    ],
+    "web_accessible_resources": [
+      "dataset.txt",
+      "popup.html",
+      "highlighter.js"
+    ]    
+}
