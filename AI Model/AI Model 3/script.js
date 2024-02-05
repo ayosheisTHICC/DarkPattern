@@ -1,9 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Check for the presence of the modal on page load
-  const modal = document.getElementById('newsletterModal');
+    const modal = document.getElementById('newsletterModal');
   if (modal) {
-    // Display a warning or take appropriate action
-    console.warn('Potential dark pattern detected: Automatic newsletter subscription modal.');
+   
+    console.warn('dark pattern detected: Automatic newsletter subscription modal.');
+    
+   
+    setTimeout(() => {
+      modal.style.display = 'block';
+    }, 5000);
+    
+   
+    const closeBtn = document.querySelector('.close');
+    closeBtn.addEventListener('click', function() {
+      if (!closeBtn.disabled) {
+        closeModal();
+        closeBtn.disabled = true;
+        console.warn('Potential dark pattern detected: Attempted to close modal too quickly.');
+      }
+    });
   }
 });
 
@@ -13,7 +27,7 @@ function closeModal() {
 }
 
 function subscribe() {
-  // Implement the subscribe logic here
-  alert('Subscribed to the newsletter!');
+ 
+  alert('u clicked on subscribe!');
   closeModal();
 }
