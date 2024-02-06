@@ -14,6 +14,6 @@ score = response_Dict['score']
 print(f"This phrase is {round(score*100,2)}% likely to be a Dark Patten, be aware!!!")
 print("Detailed Review:")
 pprint(response.json())
-print("Thank you for using this program to detect dark pattern buster developed by team 'Sharktooth' of Chandigarh University")
+print("Thank you for using this program to detect dark pattern developed by team 'CodeChuclers' of Chandigarh University")
 
 
