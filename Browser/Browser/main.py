@@ -65,6 +65,9 @@ class MainWindow(QMainWindow):
         # Toggle button for offline/online mode
         online_toggle_btn = QAction('Offline/Online', self)
         online_toggle_btn.setCheckable(True)
+
+        # Ensure that self.online_mode is declared before using it
+        self.online_mode = True
         online_toggle_btn.setChecked(self.online_mode)
         online_toggle_btn.toggled.connect(self.toggle_online_mode)
         navbar.addAction(online_toggle_btn)
