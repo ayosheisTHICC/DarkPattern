@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="getCertified.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <title>Get Certified</title>
+</head>
+<body>
+    <div class="header">
+      <nav class="navbar navbar-expand-lg">
+          <div class="">
+            <img src="images/logo.png" style="height: 50px; width: 50px" alt="" />
+            <a class="navbar-brand" href="index.html">Sharktooth</a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="sign.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="score.html">Score</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="getCertified.html">Get Certified</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="checkScore.html">Check Score</a>
+              </li>
+            </ul>
+  
+              <form class="form-inline my-2 my-lg-0" style="flex-flow:nowrap !important;">
+                <input
+                  class="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search company"
+                  aria-label="Search"
+                  id="searchInput"
+                />
+                <button type="submit" id="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+          </div>
+      </nav>
+    </div>
+
+    <div class="main">
+      <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="text">
+                    <h1>Get Certified in Ethical Design</h1>
+                    <p>Showcase your commitment to ethical design and provide users with a transparent and trustworthy online experience.</p>
+                    <a href="#certification-details" class="btn">Learn More</a>
+                </div>
+                <div class="image">
+                    <img src="https://media.istockphoto.com/id/1400087189/photo/top-quality-service-guarantee-and-iso-certification-and-standardization-idea-emblazoned-on.jpg?s=612x612&w=0&k=20&c=VsBQPcg6y3VFmA7o8b83_qu3hlZCAoCzhqGJ_sI9ow8=" alt="Image">
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section class="criteria-section">
+        <div class="section-header">
+          <img src="../images/certified.jpg" alt="Image Description" height="50px" width="50px">
+          <h2 class="section-heading">Certification Criteria</h2>
+        </div>
+        <div class="container">
+            <div class="criteria-cards">
+                <div class="card">
+                    <h2>Transparency and Clarity</h2>
+                    <p>Clearly communicate information about products, services, pricing, and terms to users. Avoid deceptive or misleading tactics in presenting information or offers to users.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="card">
+                    <h2>User Consent and Control</h2>
+                    <p>Obtain genuine user consent before collecting personal information or enabling features like notifications. Provide users with clear options to opt-in or opt-out of features, or data collection.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="card">
+                    <h2>Honesty and Accuracy</h2>
+                    <p>Ensure that all information presented on the website, including product descriptions, reviews, and claims, is accurate and truthful. Avoid exaggeration and manipulation</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="apply-now-section">
+        <h2 class="apply-now-heading">Apply for certificate</h2>
+      <div class="container">
+          <form class="application-form">
+              <div class="form-group">
+                  <label for="website-name">Website Name</label>
+                  <input type="text" id="website-name" name="website-name" placeholder="Enter your website name" required>
+              </div>
+              <div class="form-group">
+                  <label for="website-url">Website URL</label>
+                  <input type="url" id="website-url" name="website-url" placeholder="Enter your website URL" required>
+              </div>
+              <div class="form-group">
+                  <label for="website-purpose">Website Purpose</label>
+                  <textarea id="website-purpose" name="website-purpose" placeholder="Describe the purpose of your website" required></textarea>
+              </div>
+              <button type="submit" class="btn">Apply Now</button>
+          </form>
+      </div>
+    </section>
+  
+    
+    </div>
+</body>
+</html>

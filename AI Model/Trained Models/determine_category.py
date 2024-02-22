@@ -4,12 +4,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 from joblib import dump
 
 selected_classification = "Pattern Category"
 
-df = pd.read_csv("C:\\Users\\Anuku\\OneDrive\\Desktop\\ShadowGuard-master\\train_classifier\\dark_patterns.csv")
+df = pd.read_csv("C:\\Users\\Anuku\\OneDrive\\Desktop\\DarkWebPattern-Sharktooth\\AI Model\\Trained Models\\dark_patterns.csv")
 
 df = df[pd.notnull(df["Pattern String"])]
 col = ["Pattern String", selected_classification]
@@ -35,11 +36,29 @@ X_train_counts = count_vect.fit_transform(X_train)
 tfidf_transformer = TfidfTransformer()
 X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
 
-clf = MultinomialNB().fit(X_train_tfidf, y_train)
+# Naive Bayes Classifier
+clf_nb = MultinomialNB().fit(X_train_tfidf, y_train)
 
-y_pred = clf.predict(count_vect.transform(X_test))
+y_pred_nb = clf_nb.predict(count_vect.transform(X_test))
 
-print("Accuracy:", metrics.accuracy_score(y_pred, y_test))
+# Random Forest Classifier
+clf_rf = RandomForestClassifier(n_estimators=100, random_state=42)
+X_train_counts_rf = count_vect.fit_transform(X_train)
+X_train_tfidf_rf = tfidf_transformer.fit_transform(X_train_counts_rf)
+clf_rf.fit(X_train_tfidf_rf, y_train)
 
-dump(clf, 'category_classifier.joblib')
-dump(count_vect, 'category_vectorizer.joblib')
+y_pred_rf = clf_rf.predict(count_vect.transform(X_test))
+
+# Calculate and print accuracies
+accuracy_nb = metrics.accuracy_score(y_pred_nb, y_test)
+accuracy_rf = metrics.accuracy_score(y_pred_rf, y_test)
+
+print("Naive Bayes Accuracy: ", accuracy_nb)
+print("Random Forest Accuracy: ", accuracy_rf)
+
+# Save the models, vectorizers, and accuracies
+dump(clf_nb, 'naive_bayes_classifier.joblib')
+dump(clf_rf, 'random_forest_classifier.joblib')
+dump(count_vect, 'classifier_vectorizer.joblib')
+dump(accuracy_nb, 'naive_bayes_accuracy.joblib')
+dump(accuracy_rf, 'random_forest_accuracy.joblib')
