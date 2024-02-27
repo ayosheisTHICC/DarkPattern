@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-image: url('path/to/your/image.jpg');
+  background-image: url("path/to/your/image.jpg");
 }
 
 :root {
@@ -29,7 +29,7 @@ body {
 }
 
 header {
-  height: 70px;
+  height: 100px;
   width: 100vw;
   padding: 0 30px;
   background-color: var(--background-color1);
