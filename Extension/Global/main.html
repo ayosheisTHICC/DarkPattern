@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sharktooth Web Extension</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<style>
+body {
+  min-width: 300px;
+  font-family: 'Arial', sans-serif; /* Changed font family */
+  background-color: #f0f0f0;
+}
+.card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+  padding: 5px;
+  border-radius: 5px;
+}
+h1.red-background {
+  background-color: red;
+  color: white;
+}
+.view_detected, .cookies_detected, span[style="cursor:pointer;"] {
+  background-color: #007bff;
+  color:white;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+/*      display: none;*/
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+.alternate-color tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.show-table {
+  display: table;
+}
+.hide-button {
+  font-size: smaller; /* Reduced font size */
+  cursor: pointer;
+  color: #007bff;
+  background: none;
+  border: none;
+  outline: none;
+}
+</style>
+<body>
+    <div class="card" style="background-color: #007bff;color:white;">
+    <span style="font-weight: 600;">Dark Pattern Detector By <br>Sharktooth</span>
+  </div>
+  <div class="card" id="red-site" style="background-color: grey;">
+    <h1 class="" style="background-color: grey;color:white;">Site has not been analyzed by GoI</h1>
+  </div>
+  <div class="card" >
+    <div class="detected_patterns" id="detected_patterns" >
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Terms and Conditions</th>
+          </tr>
+        </thead>
+        <tbody class="alternate-color">
+          <tr>
+            <td>1</td>
+            <td>User Responsibility: Use responsibly, respect others' rights.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Privacy: We value your privacy, follow our Privacy Policy.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Content Ownership: We own App content; don't modify without consent.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Data Collected: Personal data, such as information about your activity and interests.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="card" style="background-color: #007bff;color:white;">
+    <span style="font-weight: 600;">Cookies Detected</span>
+  </div>
+  <div class="card">
+    <div class="cookies_div" id="cookies_div" >
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>S.No</th>
+            <th>Domain</th>
+            <th>Cookie Name</th>
+            <th>Expires On</th>
+            <th>#</th>
+          </tr>
+        </thead>
+        <tbody class="alternate-color" id="cookies_value">
+          
+        </tbody>
+      </table>
+      <button class="hide-button">View More</button> <!-- Converted to button -->
+      <button class="hide-button">Hide</button> <!-- Converted to button -->
+    </div>
+  </div>
+  <div class="card" style="background-color: #007bff;color:white;">
+      <span style="font-weight: 600;">Write Reviews</span>
+    </div>
+    <div class="card">
+      <!-- <span class="" >Write Reviews</span> -->
+      <textarea col="25" rows="5"></textarea>
+      <br>
+      <input type="submit" value="Add Review">
+    </div>
+  <div class="card" style="background-color: #007bff;color:white;">
+    <span style="font-weight: 600;">Read Reviews</span>
+  </div>
+  <div class="card">
+    <div class="review_details" id="review_details" >
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody class="alternate-color">
+          <tr>
+            <td>1</td>
+            <td>Great site to study programming</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Nice site but always asking for login before showing contents</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Wonderful courses but prices are high</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Nice courses but always showing sale ends in some time</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Nice site but Lots of popups are disturbing</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="hide-button">Hide</button> <!-- Converted to button -->
+    </div>
+  </div>
+  
+  <div class="card" style="background-color: #007bff;color:white;">
+    <span style="font-weight: 600;">Explore Alternate Sites</span>
+  </div>
+
+  <div class="card">
+    <div class="alternate_site_div" id="alternate_site_div">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Site</th>
+          </tr>
+        </thead>
+        <tbody class="alternate-color">
+          <tr>
+            <td>1</td>
+            <td>Tutorialspoint</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Javapoint</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>W3Schools</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="hide-button">Hide</button> <!-- Converted to button -->
+    </div>
+  </div>
+    <div id="site_analysis"></div>
+    <script src="jquery.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
