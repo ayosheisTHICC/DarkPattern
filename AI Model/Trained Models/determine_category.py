@@ -7,6 +7,9 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 from joblib import dump
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 selected_classification = "Pattern Category"
 
@@ -55,6 +58,32 @@ accuracy_rf = metrics.accuracy_score(y_pred_rf, y_test)
 
 print("Naive Bayes Accuracy: ", accuracy_nb)
 print("Random Forest Accuracy: ", accuracy_rf)
+
+# Confusion Matrix for Naive Bayes
+conf_matrix_nb = confusion_matrix(y_test, y_pred_nb)
+print("Confusion Matrix - Naive Bayes:\n", conf_matrix_nb)
+
+# Confusion Matrix for Random Forest
+conf_matrix_rf = confusion_matrix(y_test, y_pred_rf)
+print("Confusion Matrix - Random Forest:\n", conf_matrix_rf)
+
+# Visualize Confusion Matrix for Naive Bayes
+plt.figure(figsize=(8, 6))
+plt.title("Confusion Matrix - Naive Bayes")
+sns.heatmap(conf_matrix_nb, annot=True, fmt="d", cmap="Blues", cbar=False,
+            xticklabels=category_id_df[selected_classification].values, yticklabels=category_id_df[selected_classification].values)
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.show()
+
+# Visualize Confusion Matrix for Random Forest
+plt.figure(figsize=(8, 6))
+plt.title("Confusion Matrix - Random Forest")
+sns.heatmap(conf_matrix_rf, annot=True, fmt="d", cmap="Blues", cbar=False,
+            xticklabels=category_id_df[selected_classification].values, yticklabels=category_id_df[selected_classification].values)
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.show()
 
 # Save the models, vectorizers, and accuracies
 dump(clf_nb, 'naive_bayes_classifier.joblib')
