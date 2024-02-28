@@ -1,0 +1,154 @@
+body {
+    background-image: radial-gradient( circle farthest-corner at 11.7% 80.6%,  rgba(249,185,255,1) 0%, rgba(177,172,255,1) 49.3%, rgba(98,203,255,1) 89% );
+    /* background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%); */
+    /* background: rgb(166,165,180); */
+    /* background: radial-gradient(circle, rgba(166,165,180,1) 0%, rgba(10,10,41,1) 83%); */
+}
+
+.main-content {
+    background: none; /* Reset the background for the main content */
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Ensures all cards have the same height */
+    flex-wrap: wrap;
+    margin: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.card {
+    width: 18rem; /* Set the width of all cards */
+    margin-top: 40px;
+    margin-bottom: 40px; /* Add some space between cards */
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    overflow: hidden;
+    background-image: linear-gradient( 63.1deg,  rgba(5,23,111,1) 16.4%, rgba(24,95,240,1) 64.5% );
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-body h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f9f7f7;
+    font-weight: 700;
+}
+
+.card-body h4 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #f9f7f7;
+    font-weight: 700;
+}
+
+.card hr {
+    margin: 0;
+}
+
+
+/* Navbar */
+.navbar {
+    background: rgb(5, 5, 53);
+    /* position: fixed; */
+/* background: radial-gradient(circle, rgba(25,25,26,1) 83%, rgba(25,25,26,1) 89%); */
+}
+
+.navbar a {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    color: white;
+    border-color: white;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: center;
+}
+
+.navbar-nav .nav-item {
+    text-align: center;
+    padding: 2px;
+    margin-right: 15px;
+    font-size: large;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-inline {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    margin-right: 10px;
+}
+
+.btn {
+    color: white;
+    border-color: white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: rgb(84, 9, 236);
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #1042b7;
+}

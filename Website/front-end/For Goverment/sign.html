@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, 
+				initial-scale=1.0"
+    />
+    <title>Dark Pattern</title>
+    <link rel="stylesheet" href="stl.css" />
+    <link rel="stylesheet" href="helo.css" />
+	<link rel="stylesheet" href="css/reportContainer.css">
+  </head>
+
+  <body>
+    <!-- for header part -->
+    <header>
+      <div class="logosec">
+        <div class="logo">Dark Pattern</div>
+        <img
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+          class="icn menuicn"
+          id="menuicn"
+          alt="menu-icon"
+        />
+      </div>
+
+      <div class="searchbar">
+        <input type="text" placeholder="Search" />
+        <div class="searchbtn">
+          <img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+            class="icn srchicn"
+            alt="search-icon"
+          />
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="circle"></div>
+        <img
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+          class="icn"
+          alt=""
+        />
+        <div class="dp">
+          <img
+            src="https://beingselfish.in/wp-content/uploads/2023/09/anime-dp24.jpg"
+            class="dpicn"
+            alt="dp"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <div class="navcontainer">
+        <nav class="nav">
+          <div class="nav-upper-options">
+            <div class="nav-option option1">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                class="nav-img"
+                alt="dashboard"
+              />
+              <h3>Dashboard</h3>
+            </div>
+
+            <div class="nav-option option3">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+                class="nav-img"
+                alt="report"
+              />
+              <!-- <h3>Score</h3>  -->
+              <h3>
+                <a href="score.html" style="text-decoration: none; color: black"
+                  >Score</a
+                >
+              </h3>
+            </div>
+
+            <div class="nav-option option5">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                class="nav-img"
+                alt="blog"
+              />
+              <h3>
+				        <a href="dictionary.html" style="text-decoration: none; color: black">Dictionary</a>
+			        </h3>
+            </div>
+
+            <div class="nav-option option6">
+              <img
+                src="data:image/png;base64,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"
+                class="nav-img"
+                alt="settings"
+              />
+              <h3>
+                <a href="dictionary.html" style="text-decoration: none; color: black">Get Certified</a>
+              </h3>
+            </div>
+
+            <div class="nav-option logout">
+              <img
+                src="data:image/png;base64,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"
+                class="nav-img"
+                alt="logout"
+              />
+              <h3>
+                <a href="dictionary.html" style="text-decoration: none; color: black">Check Score</a>
+              </h3>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="main">
+        <div class="searchbar2">
+          <input type="text" name="" id="" placeholder="Search" />
+          <div class="searchbtn">
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+              class="icn srchicn"
+              alt="search-button"
+            />
+          </div>
+        </div>
+
+        <div class="box-container">
+          <div class="box box1">
+            <div class="text">
+              <h2 class="topic-heading">60.5k</h2>
+              <h2 class="topic">Dark Patterns</h2>
+            </div>
+
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
+              alt="Views"
+            />
+          </div>
+
+          <div class="box box2">
+            <div class="text">
+              <h2 class="topic-heading">20.5k</h2>
+              <h2 class="topic">Warned</h2>
+            </div>
+
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
+              alt="likes"
+            />
+          </div>
+
+          <div class="box box3">
+            <div class="text">
+              <h2 class="topic-heading">32.5k</h2>
+              <h2 class="topic">Removed</h2>
+            </div>
+
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
+              alt="comments"
+            />
+          </div>
+
+          <div class="box box4">
+            <div class="text">
+              <h2 class="topic-heading">10.5k</h2>
+              <h2 class="topic">Reported</h2>
+            </div>
+
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png"
+              alt="published"
+            />
+          </div>
+        </div>
+
+        <div class="report-container">
+          <div class="report-header">
+            <h1 class="recent-Articles">Companies Dark Pattern Analysis</h1>
+            <button class="view">View All</button>
+          </div>
+
+          <div class="report-body">
+            <div class="report-topic-heading">
+              <h3 class="t-op">Website</h3>
+              <h3 class="t-op">Score</h3>
+              <h3 class="t-op">Found</h3>
+              <h3 class="t-op">Analysed On</h3>
+            </div>
+
+            <div class="items">
+              <div class="item1">
+                <h3 class="t-op-nextlvl">Google</h3>
+                <h3 class="t-op-nextlvl">74%</h3>
+                <h3 class="t-op-nextlvl">21k</h3>
+                <h3 class="t-op-nextlvl label-tag">11.08.2001</h3>
+              </div>
+
+              <div class="item1">
+                <h3 class="t-op-nextlvl">Facebook</h3>
+                <h3 class="t-op-nextlvl">86%</h3>
+                <h3 class="t-op-nextlvl">36k</h3>
+                <h3 class="t-op-nextlvl label-tag">11.08.2001</h3>
+              </div>
+
+              <div class="item1">
+                <h3 class="t-op-nextlvl">Microsoft</h3>
+                <h3 class="t-op-nextlvl">67%</h3>
+                <h3 class="t-op-nextlvl">15k</h3>
+                <h3 class="t-op-nextlvl label-tag">11.08.2001</h3>
+              </div>
+
+              <div class="item1">
+                <h3 class="t-op-nextlvl">Youtube</h3>
+                <h3 class="t-op-nextlvl">87%</h3>
+                <h3 class="t-op-nextlvl">42k</h3>
+                <h3 class="t-op-nextlvl label-tag">11.08.2001</h3>
+              </div>
+
+              <div class="item1">
+                <h3 class="t-op-nextlvl">Wikipedia</h3>
+                <h3 class="t-op-nextlvl">71%</h3>
+                <h3 class="t-op-nextlvl">19k</h3>
+                <h3 class="t-op-nextlvl label-tag">11.08.2001</h3>
+              </div>
+
+              <!-- <div class="item1">
+                <h3 class="t-op-nextlvl">BBC</h3>
+                <h3 class="t-op-nextlvl">86%</h3>
+                <h3 class="t-op-nextlvl">39k</h3>
+                <h3 class="t-op-nextlvl label-tag">11.08.2001</h3>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./jssss.js"></script>
+  </body>
+</html>
