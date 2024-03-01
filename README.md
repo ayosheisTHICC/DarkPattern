@@ -1,4 +1,4 @@
-# DarkWebPattern Sharktooth
+# DarkPattern Sharktooth
 
 This project encompasses a suite of tools designed to enhance user experience and security. Below is a brief overview of the components:
 
